@@ -2,7 +2,7 @@
 
 This repository contains a modified gowebapi/webapi [demo](https://github.com/gowebapi/webapi/blob/41cedfc27a0bd35c1220dd0fe4b4c4505c33b0ea/graphics/webgl/example_cube_test.go) that works with tinygo.
 
-https://github.com/semanser/tinygo-wasm-webgl-demo/assets/4020045/5d8fb912-8660-45e9-af64-797d471f1b29
+https://github.com/semanser/tinygo-wasm-webgl-demo/assets/4020045/2047caee-491a-4db6-bb49-8e24ec42bb43
 
 # Prerequisites
 - Install [tinygo](https://tinygo.org/)
