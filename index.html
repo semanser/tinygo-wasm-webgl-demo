@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>go webassembly - bouncy</title>
+		<script src="wasm_exec.js"></script>
+		<script>
+    const go = new Go(); // Defined in wasm_exec.js
+    const WASM_URL = 'main.wasm';
+
+    var wasm;
+
+    if ('instantiateStreaming' in WebAssembly) {
+      WebAssembly.instantiateStreaming(fetch(WASM_URL), go.importObject).then(function (obj) {
+        wasm = obj.instance;
+        go.run(wasm);
+      })
+    } else {
+      fetch(WASM_URL).then(resp =>
+        resp.arrayBuffer()
+      ).then(bytes =>
+        WebAssembly.instantiate(bytes, go.importObject).then(function (obj) {
+          wasm = obj.instance;
+          go.run(wasm);
+        })
+      )
+    }
+		</script>
+	</head>
+	<body id="body">
+    <span id="fps"></span>
+    <div id="app">
+    </div>
+  </body>
+</html>
